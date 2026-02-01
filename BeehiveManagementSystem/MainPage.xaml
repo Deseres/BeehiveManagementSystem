@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeehiveManagementSystem.MainPage">
+
+    <ScrollView>
+        <Grid Margin ="20" ColumnSpacing="20" MinimumHeightRequest="400">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+
+                <RowDefinition Height="3*" />
+
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" FontSize="Large" Text="Job Assignments"/>
+            <Border Grid.Row="1" Grid.Column="0">
+                <VerticalStackLayout>
+                    <Label Text="Bee jobs" FontSize="Medium" Margin="0,0,0,20"/>
+                    <Picker x:Name="JobPicker" Margin="0,0,0,20" FontSize="Medium" />
+                    <Button x:Name="AssignJobButton" FontSize="Medium" Text="Assign this job to a bee" Margin="0,0,0,20"/>
+                </VerticalStackLayout>
+            </Border>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="WorkShiftButton" FontSize="Large" Text="Work the next shift"/>
+            <Button Grid.Row="2" Grid.Column="0" IsVisible="False" x:Name="OutOfHoneyButton" FontSize="Large"
+                    BackgroundColor="Red" Text="The hive is out of honey"/>
+
+            <Label Grid.Row="0" Grid.Column="1" FontSize="Large" Text="Queen's Report"/>
+            <Label Grid.Column="1" Grid.Row ="1"  Grid.RowSpan="2"  x:Name="StatusReport" FontSize="Medium" BackgroundColor="Black"
+                   Text="" TextColor="Yellow" Padding="10" VerticalOptions="Fill"/>
+
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
