@@ -2,29 +2,51 @@
 
 public partial class MainPage : ContentPage
 {
-
+    private Queen queen = new Queen();
     public MainPage()
     {
-        // This method loads the XAML. Do not remove it.
+
         InitializeComponent();
 
-        // 1. Define your data
-        string[] jobs = { "Nectar Collector", "Honey Manufactorer", "Egg Care"};
+        JobPicker.ItemsSource = new string[]
+            { "Nectar Collector", 
+                "Honey Manufactorer",
+                "Egg Care"
+            };
+        JobPicker.SelectedIndex = 0;
 
-        // 2. Assign it to the picker
-        JobPicker.ItemsSource = jobs;
+        UpdateStatusAndEnableAssignButton();
+        
+    }
+
+    private void UpdateStatusAndEnableAssignButton()
+    {
+        StatusReport.Text = queen.StatusReport;
+        AssignJobButton.IsEnabled = queen.CanAssignWorkers;
     }
 
     public void OnAssignJobButtonClicked(object sender, EventArgs e)
     {
-
+        queen.AssignBee(JobPicker.SelectedItem.ToString());
+        UpdateStatusAndEnableAssignButton();
     }
 
     public void OnWorkTheNextShiftButtonClicked(object sender, EventArgs e)
     {
+        if (!queen.WorkTheNextShift())
+        {
+            WorkShiftButton.IsVisible = false;
+            OutOfHoneyButton.IsVisible = true;
+        }
+        UpdateStatusAndEnableAssignButton();
     }
 
     public void onOutOfHoneyButtonClicked(object sender, EventArgs e)
     {
+        HoneyVault.Reset();
+        queen = new Queen();
+        WorkShiftButton.IsVisible = true;
+        OutOfHoneyButton.IsVisible = false;
+        UpdateStatusAndEnableAssignButton();
     }
 }
