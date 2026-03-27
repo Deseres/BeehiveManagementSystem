@@ -17,6 +17,16 @@ public partial class MainPage : ContentPage
 
         UpdateStatusAndEnableAssignButton();
         
+        Dispatcher.StartTimer(TimeSpan.FromSeconds(1.5), TimerTick);
+    }
+
+    private bool TimerTick()
+    {
+        if (!this.IsLoaded || !WorkShiftButton.IsVisible)
+            return false;
+
+        OnWorkTheNextShiftButtonClicked(this, new EventArgs());
+        return true;
     }
 
     private void UpdateStatusAndEnableAssignButton()
@@ -53,4 +63,6 @@ public partial class MainPage : ContentPage
         OutOfHoneyButton.IsVisible = false;
         UpdateStatusAndEnableAssignButton();
     }
+
+    
 }
