@@ -6,7 +6,7 @@ internal class HoneyManufacturer : Bee
     {
     }
 
-    public override decimal CostPerShift => Constants.HONEY_MANUFACTRORER_COST;
+    public override decimal CostPerShift => Constants.HONEY_MANUFACTURER_COST;
 
     public override bool WorkTheNextShift()
     {

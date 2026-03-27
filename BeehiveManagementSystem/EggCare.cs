@@ -1,6 +1,6 @@
 ﻿namespace BeehiveManagementSystem;
 
-internal class EggCare: Bee
+internal class EggCare : Bee
 {
     private Queen queen;
 

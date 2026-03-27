@@ -1,16 +1,22 @@
-﻿namespace BeehiveManagementSystem;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-internal class NectarCollector : Bee
+namespace BeehiveManagementSystem
 {
-    public NectarCollector() : base("Nectar Collector")
+    internal class NectarCollector : Bee
     {
-    }
+        public NectarCollector() : base("Nectar Collector") {}
 
-    public override decimal CostPerShift => Constants.NECTAR_COLLECTOR_COST;
+        public override decimal CostPerShift
+        {
+            get {return Constants.NECTAR_COLLECTOR_COST;}
+        }
 
-    public override bool WorkTheNextShift()
-    {
-        HoneyVault.CollectNectar(Constants.NECTAR_COLLECTED_PER_SHIFT);
-        return base.WorkTheNextShift();
+        public override bool WorkTheNextShift()
+        {
+            HoneyVault.CollectNectar(Constants.NECTAR_COLLECTED_PER_SHIFT);
+            return base.WorkTheNextShift();
+        }
     }
 }

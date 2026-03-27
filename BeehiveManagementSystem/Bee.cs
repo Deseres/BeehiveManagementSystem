@@ -1,4 +1,8 @@
-﻿namespace BeehiveManagementSystem;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BeehiveManagementSystem;
 
 internal class Bee
 {
@@ -6,7 +10,7 @@ internal class Bee
 
     public string Job { get; private set; }
 
-    public Bee (string job)
+    public Bee(string job)
     {
         Job = job;
     }
@@ -18,5 +22,4 @@ internal class Bee
         else
             return false;
     }
-
 }

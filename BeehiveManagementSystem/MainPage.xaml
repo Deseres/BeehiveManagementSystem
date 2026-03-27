@@ -23,12 +23,12 @@
                 <VerticalStackLayout>
                     <Label Text="Bee jobs" FontSize="Medium" Margin="0,0,0,20"/>
                     <Picker x:Name="JobPicker" Margin="0,0,0,20" FontSize="Medium" />
-                    <Button x:Name="AssignJobButton" FontSize="Medium" Text="Assign this job to a bee" Margin="0,0,0,20"/>
+                    <Button x:Name="AssignJobButton" FontSize="Medium" Text="Assign this job to a bee" Margin="0,0,0,20" Clicked="OnAssignJobButtonClicked"/>
                 </VerticalStackLayout>
             </Border>
-            <Button Grid.Row="2" Grid.Column="0" x:Name="WorkShiftButton" FontSize="Large" Text="Work the next shift"/>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="WorkShiftButton" FontSize="Large" Text="Work the next shift" Clicked="OnWorkTheNextShiftButtonClicked"/>
             <Button Grid.Row="2" Grid.Column="0" IsVisible="False" x:Name="OutOfHoneyButton" FontSize="Large"
-                    BackgroundColor="Red" Text="The hive is out of honey"/>
+                    BackgroundColor="Red" Text="The hive is out of honey" Clicked="OnOutOfHoneyButtonClicked"/>
 
             <Label Grid.Row="0" Grid.Column="1" FontSize="Large" Text="Queen's Report"/>
             <Label Grid.Column="1" Grid.Row ="1"  Grid.RowSpan="2"  x:Name="StatusReport" FontSize="Medium" BackgroundColor="Black"

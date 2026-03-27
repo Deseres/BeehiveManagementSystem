@@ -9,8 +9,8 @@ public partial class MainPage : ContentPage
         InitializeComponent();
 
         JobPicker.ItemsSource = new string[]
-            { "Nectar Collector", 
-                "Honey Manufactorer",
+            {   "Nectar Collector", 
+                "Honey Manufacturer",
                 "Egg Care"
             };
         JobPicker.SelectedIndex = 0;
@@ -27,8 +27,12 @@ public partial class MainPage : ContentPage
 
     public void OnAssignJobButtonClicked(object sender, EventArgs e)
     {
-        queen.AssignBee(JobPicker.SelectedItem.ToString());
-        UpdateStatusAndEnableAssignButton();
+        if (JobPicker.SelectedItem != null)
+        {
+            string selectedJob = JobPicker.SelectedItem.ToString();
+            queen.AssignBee(selectedJob);
+            UpdateStatusAndEnableAssignButton();
+        }
     }
 
     public void OnWorkTheNextShiftButtonClicked(object sender, EventArgs e)
@@ -41,7 +45,7 @@ public partial class MainPage : ContentPage
         UpdateStatusAndEnableAssignButton();
     }
 
-    public void onOutOfHoneyButtonClicked(object sender, EventArgs e)
+    public void OnOutOfHoneyButtonClicked(object sender, EventArgs e)
     {
         HoneyVault.Reset();
         queen = new Queen();
