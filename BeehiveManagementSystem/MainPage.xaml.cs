@@ -17,7 +17,7 @@ public partial class MainPage : ContentPage
 
         UpdateStatusAndEnableAssignButton();
         
-        Dispatcher.StartTimer(TimeSpan.FromSeconds(1.5), TimerTick);
+        Dispatcher.StartTimer(TimeSpan.FromSeconds(5), TimerTick);
     }
 
     private bool TimerTick()
