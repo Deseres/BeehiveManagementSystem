@@ -8,7 +8,7 @@ namespace BeehiveManagementSystem;
 internal class Queen : Bee
 {
 
-    private Bee[] workers = new Bee[0];
+    private IWorker[] workers = new IWorker[0];
     private decimal eggs  = 0;
     private decimal unassignedWorkers = 3;
 
@@ -52,7 +52,7 @@ internal class Queen : Bee
         UpdateStatusReport(true);
     }
 
-    private void AddWorker(Bee worker)
+    private void AddWorker(IWorker worker)
     {
         if (unassignedWorkers >= 1)
         {
@@ -75,7 +75,7 @@ internal class Queen : Bee
     {
         eggs = eggs + Constants.EGGS_PER_SHIFT;
         bool allWorkersDidTheirJobs = true;
-        foreach (Bee worker in workers)
+        foreach (IWorker worker in workers)
         {
             if (!worker.WorkTheNextShift())
                 allWorkersDidTheirJobs = false;
@@ -101,7 +101,7 @@ internal class Queen : Bee
     private string WorkerStatus(string job)
     {
         int count = 0;
-        foreach (Bee worker in workers)
+        foreach (IWorker worker in workers)
         {
             if (worker.Job == job)
             {
